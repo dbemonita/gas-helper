@@ -1,11 +1,11 @@
 package helper
 
 import (
-	"fmt"
+	"log"
 	"time"
 )
 
 func TimeTrack(start time.Time, name string) {
 	elapsed := time.Since(start)
-	fmt.Printf("%s took %s\n", name, elapsed)
+	log.Printf("%s took %s\n", name, elapsed)
 }
