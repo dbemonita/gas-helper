@@ -1,6 +1,7 @@
 package helper
 
 import (
+	"fmt"
 	"github.com/joho/godotenv"
 	"log"
 	"os"
@@ -9,11 +10,12 @@ import (
 func InitEnv(filename string) {
 
 	homedir, _ := os.UserHomeDir()
-	envdir := homedir + "/.gas/envs/"
+	envdir := homedir + "/.gas/envs"
 	f := envdir + "/" + filename
 
 	if _, err := os.Stat(f); err == nil {
 		err := godotenv.Load(f) //read .evn file
+		fmt.Println(err)
 		if err != nil {
 			log.Fatal("Error loading .env file ", f)
 		}
